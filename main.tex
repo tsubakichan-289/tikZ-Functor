@@ -1,0 +1,45 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usetikzlibrary{positioning}
+
+\newcommand{\yslant}{0.4}
+\newcommand{\xslant}{-0.6}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+    \begin{scope}[yshift=-120, every node/.append style={yslant=\yslant,xslant=\xslant}, yslant=\yslant,xslant=\xslant]
+        \draw[opacity=.75] (0,0) rectangle (4,3); % フレーム
+        \fill[white] (0,0) rectangle (4,3);
+        \node at (2, 2) {$\mathbb{C}$};
+        \node (A) at (1, 1) {$A$};
+        \node (B) at (3, 1) {$B$};
+
+        \draw[->] (A) -- (B) node[midway, above] {$f$};
+    \end{scope}
+    
+    \begin{scope}[yshift=0, every node/.append style={yslant=\yslant,xslant=\xslant}, yslant=\yslant,xslant=\xslant]
+        \draw[opacity=.75] (0,0) rectangle (4,3); % フレーム
+        \fill[white] (0,0) rectangle (4,3);
+        \node (FA) at (1, 1) {$FA$};
+        \node (FB) at (3, 1) {$FB$};
+    \end{scope}
+
+    \draw[->] (A) -- (FA);
+    \draw[->] (B) -- (FB);
+
+    \begin{scope}[yshift=0, every node/.append style={yslant=\yslant,xslant=\xslant}, yslant=\yslant,xslant=\xslant]
+      \draw[opacity=.75] (0,0) rectangle (4,3); % フレーム
+      \fill[white,opacity=.75] (0,0) rectangle (4,3);
+      \node at (2, 2) {$\mathbb{D}$};
+      \node (FA') at (1, 1) {$FA$};
+      \node (FB') at (3, 1) {$FB$};
+
+      \draw[->] (FA') -- (FB') node[midway, above] {$F f$};
+    \end{scope}
+
+
+\end{tikzpicture}
+\end{document}
